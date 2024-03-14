@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Location from "../icons/Location";
 import Globe from "../icons/Globe";
 import User from "../icons/User";
@@ -8,6 +8,8 @@ import { useState } from "react";
 import Error from "../Layout/Error";
 
 const Registration = () => {
+  const navigate = useNavigate();
+
   const [error, setError] = useState("");
   const [bussAddr, setBussAddr] = useState("");
   const [bussType, setBussType] = useState("");
@@ -25,7 +27,7 @@ const Registration = () => {
       setError("Email addresses are not the same");
     }
     if (email === confEmail) {
-      window.location.href = "/upload";
+      navigate("/upload");
     }
   };
   return (

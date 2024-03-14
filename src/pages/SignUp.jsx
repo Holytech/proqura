@@ -2,10 +2,12 @@ import { useState } from "react";
 import Company from "../icons/Company";
 import Envelope from "../icons/Envelope";
 import Lock from "../icons/Lock";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Error from "../Layout/Error";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [error, setError] = useState("");
   const [compName, setCompName] = useState("");
   const [cac, setCac] = useState("");
@@ -24,7 +26,7 @@ const SignUp = () => {
       setError("Passwords are not the same");
     }
     if (pass === confPass && email === confEmail) {
-      window.location.href = "/registration";
+      navigate("/registration");
     }
   };
 
